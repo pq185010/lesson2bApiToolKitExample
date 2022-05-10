@@ -1,0 +1,376 @@
+openapi: 3.0.0
+info:
+  version: 1.0-SNAPSHOT-oas3
+  title: lesson 2a
+servers:
+  - url: /v1
+paths:
+  /accounts:
+    post:
+      description: Create Account
+      operationId: accounts/createAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+        required: true
+      responses:
+        '201':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    get:
+      description: Query for accounts by customerId
+      operationId: accounts/queryAccounts
+      parameters:
+        - in: query
+          name: customerId
+          required: true
+          description: Customer Id
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+  /accounts/{id}:
+    get:
+      description: Get Account Balances
+      operationId: accounts/getBalance
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        balance:
+          type: integer
+        id:
+          type: integer
+        label:
+          type: string
+        type:
+          type: string
+          enum:
+            - checking
+            - savings
+
+# openapi: 3.0.0
+# info:
+#   version: 1.0-SNAPSHOT-oas3 
+#   title: ?lesson 1?
+# servers:
+#   - url: /v1
+# paths:
+#   /accounts/{id}:
+#     get:
+#       description: Get balance .
+#       operationId: getBalance
+#       parameters:
+#       - in: path
+#         name: id
+#         required: true
+#         schema:
+#           type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/Account'
+
+#   /accounts:
+#     post:
+#       description: Create Account
+#       operationId: createAccount
+#       requestBody:
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Account'
+#           required: true
+#       responses:
+#         '201':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/Account'
+#     get:
+#       description: Query Account
+#       operationId: queryAccounts
+#       parameters:
+#         - in: query
+#           name: customerId
+#           required: true
+#           description: Customer Id
+#           schema:
+#             type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 type: array
+#                 items:
+#                   $ref: '#/components/schemas/Account'
+
+  
+#---------------I thought it was working now this has-stopped working---------
+# openapi: 3.0.0
+# info:
+#   version: 1.0-SNAPSHOT-oas3
+#   title: ?lesson 1?
+# servers:
+#   - url: /v1
+# paths:
+#   /accounts:
+#     post:
+#       description: Create Account
+#       operationId: createAccount
+#       requestBody:
+#         content:
+#           application/json:
+#             schema:
+#               type: object
+#         required: true
+#     responses:
+#         '201':
+#           description: response
+#           content:
+#               application/json:
+#                 schema:
+#                     type: object
+
+#   /accounts/{id}: 
+#     get:
+#       description: Get balance.
+#       operationId: getBalance
+#       parameters:
+#       - in: path
+#         name: id
+#         required: true
+#           schema:
+#             type: integer
+#       #description: Simple get mock.
+#       #operationId: getSimple
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 type: object
+
+#--------------------------------------
+
+# http://localhost:8080/v1/accounts/7654
+# openapi: 3.0.0
+# info:
+#   version: 1.0-SNAPSHOT-oas3
+#   title: lesson 2a
+# servers:
+#   - url: /v1
+# paths:
+#   /accounts:
+#     post:
+#       description: Create Account
+#       operationId: accounts/createAccount
+#       requestBody:
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Account'
+#         required: true
+#       responses:
+#         '201':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/Account'
+#     get:
+#       description: Query for accounts by customerId
+#       operationId: accounts/queryAccounts
+#       parameters:
+#         - in: query
+#           name: customerId
+#           required: true
+#           description: Customer Id
+#           schema:
+#             type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 type: array
+#                 items:
+#                   $ref: '#/components/schemas/Account'
+#   /accounts/{id}:
+#     get:
+#       description: Get Account Balances
+#       operationId: accounts/getBalance
+#       parameters:
+#         - in: path
+#           name: id
+#           required: true
+#           schema:
+#             type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/Account'
+# components:
+#   schemas:
+#     Account:
+#       type: object
+#       properties:
+#         balance:
+#           type: integer
+#         id:
+#           type: integer
+#         label:
+#           type: string
+#         type:
+#           type: string
+#           enum:
+#             - checking
+#             - savings
+
+
+
+#----------GOOD ONEEEEEE--------
+
+#openapi: 3.0.0
+# info:
+#   version: 1.0-SNAPSHOT-oas3
+#   title: ?lesson 1?
+# servers:
+#   - url: /v1
+# paths:
+#   /accounts/{id}:
+#     get:
+#       description: Get balance .
+#       operationId: getBalance
+#       parameters:
+#       - in: path
+#         name: id
+#         required: true
+#         schema:
+#           type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 type: object
+
+#   /accounts:
+#     post:
+#       description: Create Account
+#       operationId: createAccount
+#       requestBody:
+#           content:
+#             application/json:
+#                 schema:
+#                   type: object
+#           required: true
+#       responses:
+#           '201':
+#             description: response
+#             content:
+#                 application/json:
+#                   schema:
+#                       type: object
+
+
+#---Broken---
+# openapi: 3.0.0
+# info:
+#   version: 1.0-SNAPSHOT-oas3
+#   title: ?lesson 1?
+# servers:
+#   - url: /v1
+# paths:
+#   /accounts/{id}:
+#     get:
+#       description: Get balance .
+#       operationId: getBalance
+#       parameters:
+#       - in: path
+#         name: id
+#         required: true
+#         schema:
+#           type: integer
+#       responses:
+#         '200':
+#           description: response
+#           content:
+#             application/json:
+#               schema:
+#                 type: object
+
+#   /accounts:
+#     post:
+#       description: Create Account
+#       operationId: createAccount
+#       requestBody:
+#           content:
+#             application/json:
+#                 schema:
+#                   type: object
+#           required: true
+#       responses:
+#           '201':
+#             description: response
+#             content:
+#                 application/json:
+#                   schema:
+#                       type: object
+#     get:
+#       description: Query Account
+#       operationId: queryAccounts
+#       parameters:
+#         - in: query
+#           name: customerId
+#           required: true
+#           description: Customer Id
+#           schema:
+#             type: integer
+#       responses:
+#          '200':
+#            description: response
+#            content:
+#              application/json:
+#                schema:
+#                  type: array
+#                  items:
+#                    $ref: '#/components/schemas/Account'
